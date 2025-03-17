@@ -105,7 +105,11 @@ def main():
         try:
             prediction = model.predict(input_data)
             st.subheader("Predicted Price")
-            st.write(f"${prediction[0]:.2f}")
+            if prediction > 1:
+                st.write(f"${prediction[0]:.2f}")
+            else:
+                st.write(f"Please select the values properly for {model} to predict correct Price")
+
         except Exception as e:
             st.error(f"Prediction error: {e}")
 

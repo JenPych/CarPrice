@@ -2,7 +2,6 @@ import streamlit as st
 import joblib
 import os
 import pandas as pd
-import numpy as np
 
 def load_model(model_path):
     try:
@@ -108,7 +107,7 @@ def main():
             if prediction > 1:
                 st.write(f"${prediction[0]:.2f}")
             else:
-                st.write(f"Please select the values properly for {model} to predict correct Price")
+                st.write(f"Please select the values properly for optimal Price prediction")
 
         except Exception as e:
             st.error(f"Prediction error: {e}")

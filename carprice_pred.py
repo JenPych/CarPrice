@@ -21,8 +21,8 @@ df = pd.read_csv('Automobile_data.csv')
 print(df.head())
 
 # define a directory to store graphs and models
-save_dir = '/Automobileprice/CarPrice/graph_pics'
-model_dir = '/Automobileprice/CarPrice/models'
+save_dir = '/Users/jayanshrestha/Downloads/Python_Scripts/MachineLearningAgain/Automobileprice/CarPrice/graph_pics'
+model_dir = '/Users/jayanshrestha/Downloads/Python_Scripts/MachineLearningAgain/Automobileprice/CarPrice/models'
 
 # data profiling and analysis
 print(df.info())

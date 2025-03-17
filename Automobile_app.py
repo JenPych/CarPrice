@@ -18,7 +18,7 @@ def main():
     model_options = ["Linear Regression", "Random Forest", "Decision Tree"]
     selected_model_name = st.selectbox("Select Model", model_options)
 
-    model_dir = "/MachineLearningAgain/Automobileprice/CarPrice/models"  #adjust to your path.
+    model_dir = "/Users/jayanshrestha/Downloads/Python_Scripts/MachineLearningAgain/Automobileprice/CarPrice/models"  #adjust to your path.
     model_file_map = {
         "Linear Regression": "LinearRegression_model.joblib",
         "Random Forest": "RandomForestRegressor_model.joblib",
@@ -58,12 +58,25 @@ def main():
     city_mpg = st.number_input("City MPG", value=24)
     highway_mpg = st.number_input("Highway MPG", value=30)
     fuel_system = st.selectbox("Fuel System", [0, 1, 2, 3, 4, 5, 6, 7], format_func=lambda x: ['mfi', 'spfi', '4bbl', 'spdi', '1bbl', 'idi', '2bbl', 'mpfi'][x])
-    make = st.selectbox("Make Category", [0, 1, 2], format_func=lambda x: ['Low-end', 'Mid-range', 'High-end'][x])
+
+    car_makes = {
+        0: ['chevrolet', 'dodge', 'plymouth', 'honda', 'isuzu', 'mitsubishi', 'nissan', 'toyota', 'volkswagen'],
+        1: ['mazda', 'subaru', 'renault', 'mercury', 'saab', 'peugot', 'alfa-romero'],
+        2: ['audi', 'volvo', 'bmw', 'jaguar', 'mercedes-benz', 'porsche']
+    }
+    all_makes = [make for sublist in car_makes.values() for make in sublist]
+    selected_make = st.selectbox("Car Maker",all_makes)
+    selected_key = None
+    for key, value in car_makes.items():
+        if selected_make in value:
+            selected_key = key
+            break
+
 
     input_data = pd.DataFrame({
         "symboling": [symboling],
         "normalized-losses": [normalized_losses],
-        "make": [make],
+        "make": [selected_key],
         "fuel-type": [fuel_type],
         "aspiration": [aspiration],
         "num-of-doors": [num_of_doors],

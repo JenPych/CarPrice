@@ -18,7 +18,7 @@ def main():
     model_options = ["Linear Regression", "Random Forest", "Decision Tree"]
     selected_model_name = st.selectbox("Select Model", model_options)
 
-    model_dir = "/Users/jayanshrestha/Downloads/Python_Scripts/MachineLearningAgain/Automobileprice/CarPrice/models"  #adjust to your path.
+    model_dir = "models"  #adjust to your path.
     model_file_map = {
         "Linear Regression": "LinearRegression_model.joblib",
         "Random Forest": "RandomForestRegressor_model.joblib",
